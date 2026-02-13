@@ -129,3 +129,31 @@
   --vp-custom-block-tip-code-bg: var(--vp-c-brand-soft);
 }
 
+.VPSidebar {
+  div.VPSidebarItem:not(.level-0) {
+    margin: 0 -12px;
+    padding: 0 12px;
+    border-radius: 6px;
+    transition: all 0.3s ease-in-out;
+
+    &.is-active {
+      background: #00000010;
+    }
+
+    &:not(:first-child) {
+      margin-top: 4px;
+    }
+
+    .text {
+      padding: 2px 0;
+    }
+
+    &:hover {
+      background: #00000010;
+    }
+  }
+}
+
+img {
+  border-radius: 8px;
+}

@@ -6,7 +6,14 @@ export default defineConfig({
   title: "Saviya Me",
   description: "A VitePress Site",
   lastUpdated: true,
+  
+  markdown: {
+    lineNumbers: true,
+  },
+  
   themeConfig: {
+    lastUpdatedText: "",
+    
     outline: {
       level: [2, 3, 4, 5],
     },

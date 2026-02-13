@@ -55,4 +55,8 @@ const date = computed(() => {
   font-size: 0.9rem;
   color: var(--vp-c-text-2);
 }
+
+.date-icon {
+  font-size: 0.6rem;
+}
 </style>

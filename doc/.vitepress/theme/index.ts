@@ -12,7 +12,5 @@ export default {
       'doc-before': () => h(DocTitle)
     })
   },
-  enhanceApp({ app, router, siteData }) {
-    // ...
-  }
+  enhanceApp() { }
 } satisfies Theme
