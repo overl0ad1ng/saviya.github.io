@@ -87,9 +87,9 @@ help: consider making this binding mutable
 
 想要让变量变得可变，我们需要添加一个 **mut** 关键字：
 
-```rust
+```rust /mut/
 fn main() {
-  let **mut** a = 15; // 初始化了一个变量
+  let mut a = 15; // 初始化了一个变量
   
   a = 20; // 不再报错
 }

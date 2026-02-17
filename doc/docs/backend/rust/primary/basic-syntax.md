@@ -289,7 +289,7 @@ fn main() {
 
 ```text
 ~\learn_rust\guess_number> cargo run
-   Compiling guess_number v0.1.0 (C:\Users\hhaso\Desktop\learn_rust\guess_number)
+   Compiling guess_number v0.1.0
     Finished `dev` profile [unoptimized + debuginfo] target(s) in 1.56s                                                                                                       
      Running `target\debug\guess_number.exe`
 猜数游戏！

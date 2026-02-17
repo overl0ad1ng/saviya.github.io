@@ -1,6 +1,9 @@
-import { defineConfig } from 'vitepress'
-import { rustSidebar } from "./sidebars/rust-sidebar";
+import {defineConfig} from 'vitepress'
+import {rustSidebar} from "./sidebars/rust-sidebar";
 import container from 'markdown-it-container'
+import rubyPlugin from "./md/md-it-ruby";
+import mathjax3 from 'markdown-it-mathjax3';
+import { transformerMetaWordHighlight, transformerRenderIndentGuides } from "@shikijs/transformers"; // [!code ++]
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -10,6 +13,7 @@ export default defineConfig({
   
   markdown: {
     config: (md) => {
+      md.use(mathjax3);
       md.use(container, 'blockquote', {
         render: (tokens, idx) => {
           const m = tokens[idx].info.trim().match(/^blockquote\s*(.*)$/)
@@ -20,16 +24,13 @@ export default defineConfig({
             return '</blockquote>\n'
           }
         }
-      })
+      });
+      md.use(rubyPlugin);
     },
     lineNumbers: true,
     codeTransformers: [
-      {
-        name: 'inline-highlight',
-        postprocess(html) {
-          return html.replace(/\*\*(.+?)\*\*/g, '<span class="highlighted-word">$1</span>')
-        }
-      }
+      transformerMetaWordHighlight(),
+      transformerRenderIndentGuides()
     ]
   },
   

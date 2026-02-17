@@ -1,6 +1,6 @@
 export const rustSidebar = [
 	{
-		text: '初级：起步与核心',
+		text: '初级',
 		collapsable: true,
 		items: [
 			{ text: '序言', link: '/docs/backend/rust/primary/' },
@@ -24,8 +24,8 @@ export const rustSidebar = [
 					{ text: '所有权基础', link: '/docs/backend/rust/primary/ownership/' },
 					{ text: '栈、堆和静态内存', link: '/docs/backend/rust/primary/ownership/stack-heap-and-static-memory' },
 					{ text: 'Copy vs Move vs Clone', link: '/docs/backend/rust/primary/ownership/copy-move-clone' },
-					{ text: '引用与借用 (Borrow Checker)', link: '/docs/backend/rust/primary/ownership/references-and-borrowing' },
-					{ text: '切片类型 (Slice)', link: '/docs/backend/rust/primary/ownership/slice' },
+					{ text: '引用与借用', link: '/docs/backend/rust/primary/ownership/references-and-borrowing' },
+					{ text: '切片类型', link: '/docs/backend/rust/primary/ownership/slice' },
 				]
 			},
 			{
@@ -38,9 +38,9 @@ export const rustSidebar = [
 						text: "枚举与模式匹配",
 						items: [
 							{ text: '定义枚举', link: '/docs/backend/rust/primary/struct-and-enums/enums/' },
-							{ text: '解构与模式匹配 Match', link: '/docs/backend/rust/primary/struct-and-enums/enums/match' },
+							{ text: '模式匹配', link: '/docs/backend/rust/primary/struct-and-enums/enums/match' },
 							{ text: 'if let & while let', link: '/docs/backend/rust/primary/struct-and-enums/enums/if-let' },
-							{ text: 'Option 和 Result 的优雅处理', link: '/docs/backend/rust/primary/struct-and-enums/enums/option-and-result' },
+							{ text: 'Option 和 Result', link: '/docs/backend/rust/primary/struct-and-enums/enums/option-and-result' },
 						]
 					},
 				]
@@ -48,7 +48,7 @@ export const rustSidebar = [
 		]
 	},
 	{
-		text: '中级：工程与抽象',
+		text: '中级',
 		collapsable: true,
 		items: [
 			{
@@ -56,8 +56,8 @@ export const rustSidebar = [
 				collapsed: true,
 				items: [
 					{ text: '包和 Crate', link: '/docs/backend/rust/senior/project/package-and-crate' },
-					{ text: '模块系统详解', link: '/docs/backend/rust/senior/project/mod-and-access-modifier' },
-					{ text: '外部依赖管理 (Cargo.toml)', link: '/docs/backend/rust/senior/project/cargo-toml' },
+					{ text: '模块系统', link: '/docs/backend/rust/senior/project/mod-and-access-modifier' },
+					{ text: '外部依赖管理', link: '/docs/backend/rust/senior/project/cargo-toml' },
 					{ text: 'Rust 代码风格', link: '/docs/backend/rust/senior/project/lints' },
 				]
 			},
@@ -65,9 +65,33 @@ export const rustSidebar = [
 				text: '集合与内存分布',
 				collapsed: true,
 				items: [
-					{ text: 'Vector 动态数组', link: '/docs/backend/rust/senior/collections/vector' },
-					{ text: 'String 与 &str 深度解析', link: '/docs/backend/rust/senior/collections/string' },
-					{ text: 'HashMap 与哈希冲突', link: '/docs/backend/rust/senior/collections/hashmap' },
+					{ text: 'Array 静态数组', link: '/docs/backend/rust/senior/collections/array' },
+					{
+						text: "序列集合",
+						collapsed: true,
+						items: [
+							{ text: 'Vec<T>', link: '/docs/backend/rust/senior/collections/ordered-collection/vec' },
+							{ text: 'VecDeque<T>', link: '/docs/backend/rust/senior/collections/ordered-collection/vec-deque' },
+							{ text: '链表', link: '/docs/backend/rust/senior/collections/ordered-collection/linked-list' },
+						],
+					},
+					{
+						text: "映射合集",
+						collapsed: true,
+						items: [
+							{ text: 'HashMap', link: '/docs/backend/rust/senior/collections/map-collection/hashmap' },
+							{ text: 'BTreeMap', link: '/docs/backend/rust/senior/collections/map-collection/b-tree-map' },
+						],
+					},
+					{
+						text: "集合类型",
+						collapsed: true,
+						items: [
+							{ text: 'HashSet', link: '/docs/backend/rust/senior/collections/sets-collection/hashset' },
+							{ text: 'BTreeMap', link: '/docs/backend/rust/senior/collections/sets-collection/b-tree-set' },
+						],
+					},
+					{ text: 'String 与 &str', link: '/docs/backend/rust/senior/collections/string' },
 				]
 			},
 			{
@@ -105,7 +129,7 @@ export const rustSidebar = [
 		collapsable: true,
 		items: [
 			{
-				text: '内存与指针 (Deep Dive)',
+				text: '内存与指针',
 				collapsed: true,
 				items: [
 					{ text: 'Sized 与 动态大小类型 DST', link: '/docs/backend/rust/advanced/memory/sized' },
@@ -116,7 +140,7 @@ export const rustSidebar = [
 				]
 			},
 			{
-				text: '并发编程 (Concurrency)',
+				text: '并发编程',
 				collapsed: true,
 				items: [
 					{ text: '多线程与 Send/Sync Trait', link: '/docs/backend/rust/advanced/concurrency/threads' },
@@ -126,7 +150,7 @@ export const rustSidebar = [
 				]
 			},
 			{
-				text: '异步编程 (Async)',
+				text: '异步编程',
 				collapsed: true,
 				items: [
 					{ text: 'Future 与 Poll 模型', link: '/docs/backend/rust/advanced/async/future-concept' },

@@ -52,9 +52,12 @@ Rust 将内存该怎么分配，什么时候释放给放到了编译时，编译
 ---
 
 > 在 Rust 官方教材《The Rust Programming Language》中，有这样一段总结：
-> 
-> “ _At any given time, you can have either one mutable reference or any number of immutable references._
-> (在任意时刻，你要么**只能有一个可变引用**，要么可以有**任意数量的不可变引用**。)
+
+:::blockquote
+At any given time, you can have either one mutable reference or any number of immutable references.
+
+在任意时刻，你要么**只能有一个可变引用**，要么可以有**任意数量的不可变引用**。
+:::
 
 
 > [!TIP]
