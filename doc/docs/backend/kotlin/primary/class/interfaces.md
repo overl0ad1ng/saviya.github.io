@@ -144,7 +144,75 @@ fun main() {
   val printer = PrinterImpl()
   val smartPrinter = SmartPrinter(printer)
   
+  // [PrinterImpl]: Hello, World!
+  smartPrinter.printMessage("Hello, World!")
+  smartPrinter.foo() // foo
+}
+```
+
+### 委托重写
+
+我们可以重写委托中的某一个成员：
+
+```kotlin
+interface Printer {
+  fun printMessage(message: String): Unit
+}
+
+class PrinterImpl: Printer {
+  override fun printMessage(message: String): Unit {
+    println("[PrinterImpl]: $message")
+  }
+}
+
+// 通过 by 关键字将 Printer 实现委托给外部使用
+class SmartPrinter(printer: Printer): Printer by printer {
+  fun foo() {
+    println("foo")
+  }
+  
+  override fun printMessage(message: String): Unit { // [!code ++]
+    println("[SmartPrinter]: $message") // [!code ++]
+  } // [!code ++]
+}
+
+fun main() {
+  val printer = PrinterImpl()
+  val smartPrinter = SmartPrinter(printer)
+  
+  // [SmartPrinter]: Hello, World!  // [!code ++]
   smartPrinter.printMessage("Hello, World!")
   smartPrinter.foo()
 }
 ```
+
+但是需要注意的是，重写不会影响到委托对象的成员属性：
+
+```kotlin
+interface Printer {
+  val message: String
+  
+  fun printMessage(): Unit
+}
+
+class PrinterImpl: Printer {
+  override val message: String = "Hello, World!"
+  
+  override fun printMessage(): Unit {
+    println(message)
+  }
+}
+
+class SmartPrinter(printer: Printer): Printer by printer {
+  override val message: String = "Hello, Kotlin!"
+}
+
+fun main() {
+  val printer = PrinterImpl()
+  val smartPrinter = SmartPrinter(printer)
+  
+  smartPrinter.printMessage()
+}
+```
+
+这段代码会输出 `Hello, World!` 而非 `Hello, Kotlin!`

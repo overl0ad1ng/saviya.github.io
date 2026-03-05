@@ -4,6 +4,8 @@ import kotlin from "./svg/kotlin.svg?raw";
 import cpp from "./svg/cpp.svg?raw";
 import java from "./svg/java.svg?raw";
 import csharp from "./svg/csharp.svg?raw";
+import android from "./svg/android.svg?raw";
+import mc from "./svg/minecraft.svg?raw";
 
 const myDocs = [
   {
@@ -43,9 +45,27 @@ const myDocs = [
     ]
   },
   {
+    title: "安桌",
+    items: [
+      {icon: android, title: "Android 开发", desc: "", link: "/docs/android/"}
+    ]
+  },
+  {
+    title: "娱乐",
+    items: [
+      {icon: mc, title: "开发 Minecraft 模组", desc: "我爱玩方块人 QwQ", link: "/docs/funny/minecraft-mod/"}
+    ]
+  },
+  {
     title: "📒 项目和随笔",
     items: [
-      {icon: '🚌', title: "ToDay", desc: "", link: "/docs/project/today"}
+      {icon: '🚌', title: "ToDay", desc: "", link: "/docs/project/today"},
+      {
+        icon: '👨‍💻',
+        title: "你真的弄懂二进制了吗？",
+        desc: "一篇文档带你从头到尾了解二进制，以及二进制的实际用途",
+        link: "/docs/essay/binary/"
+      }
     ]
   }
 ]
