@@ -14,6 +14,7 @@ export default defineConfig({
   title: "Saviya",
   description: "A VitePress Site",
   lastUpdated: true,
+  base: "/saviya/",
 
   markdown: {
     config: (md) => {

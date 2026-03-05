@@ -4,19 +4,16 @@ on:
   push:
     branches: [ master ]
 
-  workflow_dispatch:
-
 permissions:
   contents: read
   pages: write
   id-token: write
 
 concurrency:
-  group: "pages"
+  group: pages
   cancel-in-progress: false
 
 jobs:
-  # 编译任务
   build:
     runs-on: ubuntu-latest
     steps:
@@ -25,27 +22,25 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v3
-        with:
-          version: 9
-
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'pnpm'
+          cache: npm
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
 
       - name: Install dependencies
-        run: pnpm install
+        run: npm install
 
       - name: Build with VitePress
-        run: pnpm run docs:build
+        run: npm run docs:build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: /doc/.vitepress/dist
+          path: doc/.vitepress/dist
 
   deploy:
     environment:
@@ -53,6 +48,7 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     needs: build
     runs-on: ubuntu-latest
+    name: Deploy
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
